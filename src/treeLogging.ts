@@ -28,19 +28,21 @@ export function logAllPeopleInTree(topPerson: Person): void {
   }
 }
 
-export function logAllPeopleInTreeWithQueue(topPerson: Person): void {
+export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
   const workStack: Person[] = [];
   workStack.push(topPerson);
   let currentPerson;
+  const outputArray: string[] =[];
 
   while (workStack.length != 0) {
     currentPerson = workStack.shift();
     if (currentPerson === undefined) {
       throw new Error("arr.shift() unexpectedly returned undefined!");
     }
-    console.log(currentPerson.name);
+    outputArray.push(currentPerson.name); // push currentPerson.name into the outputArray
     currentPerson["children"].forEach((child) => {
       workStack.push(child);
     });
   }
+  return outputArray;
 }
