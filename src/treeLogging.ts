@@ -51,3 +51,16 @@ export function countFamilyMembers(inputArray:string[]):number {
 
   return inputArray.length
 }
+
+export function logInTree(targetName: string, topOfTree:Person):void {
+  const namesArray = logAllPeopleInTreeWithQueue (topOfTree) // all names in array
+  const formattedTargetName = targetName.slice(0,1).toUpperCase() + targetName.slice(1).toLowerCase()
+  const isInclude = namesArray.includes(formattedTargetName)
+
+if(isInclude === true){
+    console.log(`FOUND ${formattedTargetName} !`) 
+}else {console.log(`No such person found:${formattedTargetName}`)}
+  
+
+
+}

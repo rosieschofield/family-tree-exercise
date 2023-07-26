@@ -6,6 +6,7 @@ import { createStarkTree } from "./families/stark";
 import { logAllPeopleInTree, logAllPeopleInTreeWithQueue } from "./treeLogging";
 import { printBanner } from "./utils/bannerUtils";
 import { printPersonTreeAsAscii } from "./utils/toAsciiTree";
+import { logInTree } from "./treeLogging";
 
 async function mainProgram() {
   printBanner("BARATHEON");
@@ -26,10 +27,14 @@ async function mainProgram() {
 
   // printBanner("WITH STACK - british royals")
   // logAllPeopleInTree(createBritishSuccessionTree());
-  printBanner("WITH QUEUE - british royals")
+  printBanner("WITH QUEUE - british royals");
   logAllPeopleInTreeWithQueue(createBritishSuccessionTree());
 
   // You'll need to add more test code for later exercises, too.
+  printBanner("to check if the target person is in tree");
+  logInTree("Arya",createStarkTree()) // true
+  logInTree("rosie",createStarkTree()) //false
+  logInTree("ARYA",createStarkTree()) //true
 }
 
 mainProgram();
