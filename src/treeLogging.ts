@@ -46,3 +46,8 @@ export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
   }
   return outputArray;
 }
+
+export function countFamilyMembers(inputArray:string[]):number {
+
+  return inputArray.length
+}
