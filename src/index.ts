@@ -32,9 +32,9 @@ async function mainProgram() {
 
   // You'll need to add more test code for later exercises, too.
   printBanner("to check if the target person is in tree");
-  logInTree("Arya",createStarkTree()) // true
-  logInTree("rosie",createStarkTree()) //false
-  logInTree("ARYA",createStarkTree()) //true
+  logInTree("Arya", createStarkTree()); // true
+  logInTree("rosie", createStarkTree()); //false
+  logInTree("ARYA", createStarkTree()); //true
 }
 
 mainProgram();

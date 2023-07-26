@@ -1,4 +1,8 @@
-import { logAllPeopleInTreeWithQueue, countFamilyMembers , logInTree} from "./treeLogging";
+import {
+  logAllPeopleInTreeWithQueue,
+  countFamilyMembers,
+  logInTree,
+} from "./treeLogging";
 import { createStarkTree } from "./families/stark";
 
 test("to print all Stark family members name in an array", () => {
@@ -24,13 +28,7 @@ test("to count how many people are in the tree", () => {
 });
 
 test("to check if the target person is in tree", () => {
-    expect(
-        logInTree("Arya",createStarkTree()),
-    ).toBe(true);
-    expect(
-        logInTree("rosie",createStarkTree()),
-    ).toBe(false);
-    expect(
-        logInTree("ARYA",createStarkTree()),
-    ).toBe(true);
-  });
+  expect(logInTree("Arya", createStarkTree())).toBe(true);
+  expect(logInTree("rosie", createStarkTree())).toBe(false);
+  expect(logInTree("ARYA", createStarkTree())).toBe(true);
+});

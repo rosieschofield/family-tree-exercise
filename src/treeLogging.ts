@@ -32,7 +32,7 @@ export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
   const workStack: Person[] = [];
   workStack.push(topPerson);
   let currentPerson;
-  const outputArray: string[] =[];
+  const outputArray: string[] = [];
 
   while (workStack.length != 0) {
     currentPerson = workStack.shift();
@@ -47,21 +47,18 @@ export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
   return outputArray;
 }
 
-export function countFamilyMembers(inputArray:string[]):number {
-
-  return inputArray.length
+export function countFamilyMembers(inputArray: string[]): number {
+  return inputArray.length;
 }
 
-export function logInTree(targetName: string, topOfTree:Person):boolean {
-  const namesArray = logAllPeopleInTreeWithQueue (topOfTree) // all names in array
-  const formattedTargetName = targetName.slice(0,1).toUpperCase() + targetName.slice(1).toLowerCase()
-  // const isInclude = 
-   return namesArray.includes(formattedTargetName)
+export function logInTree(targetName: string, topOfTree: Person): boolean {
+  const namesArray = logAllPeopleInTreeWithQueue(topOfTree); // all names in array
+  const formattedTargetName =
+    targetName.slice(0, 1).toUpperCase() + targetName.slice(1).toLowerCase();
+  // const isInclude =
+  return namesArray.includes(formattedTargetName);
 
-// if(isInclude === true){
-//     console.log(`FOUND ${formattedTargetName} !`) 
-// }else {console.log(`No such person found:${formattedTargetName}`)}
-  
-
-
+  // if(isInclude === true){
+  //     console.log(`FOUND ${formattedTargetName} !`)
+  // }else {console.log(`No such person found:${formattedTargetName}`)}
 }
