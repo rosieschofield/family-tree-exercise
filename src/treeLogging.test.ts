@@ -5,6 +5,7 @@ import {
 } from "./treeLogging";
 import isDescendant from "./treeLogging";
 import { createStarkTree } from "./families/stark";
+import { createBritishSuccessionTree } from "./families/britain";
 
 test("to print all Stark family members name in an array", () => {
   expect(logAllPeopleInTreeWithQueue(createStarkTree())).toStrictEqual([
@@ -36,4 +37,7 @@ test("to check if the target person is in tree", () => {
 
 test("to check if target person is Descendant of ancestor", () => {
   expect(isDescendant("Arya", "Eddard", createStarkTree())).toBe(true);
+  expect(
+    isDescendant("Queen Elizabeth II", "Harry", createBritishSuccessionTree()),
+  ).toBe(false);
 });
