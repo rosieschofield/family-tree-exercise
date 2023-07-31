@@ -44,7 +44,7 @@ export function logAllPeopleInTreeWithQueue(topPerson: Person): string[] {
       workStack.push(child);
     });
   }
-  return outputArray ;
+  return outputArray;
 }
 
 export function countFamilyMembers(inputArray: string[]): number {
@@ -83,33 +83,31 @@ export function logInTree(targetName: string, topOfTree: Person): boolean {
 //         }
 //       }
 
-
 //     }
 //   }
-  
-//   return 
+
+//   return
 // }
 
-// export default function getFamilyMembersArray(topOfTree:Person):Array{
-//   const workStack: Person[] = [];
-//   workStack.push(topOfTree);
-//   let currentPerson;
+export function getFamilyMembersArray(topOfTree: Person): Person[] {
+  const workStack: Person[] = [];
+  workStack.push(topOfTree);
+  let currentPerson;
 
-//   const outputArray: string[] = [];
+  const outputArray: Person[] = [];
 
-//   while (workStack.length != 0) {
-//     currentPerson = workStack.shift();
-//     if (currentPerson === undefined) {
-//       throw new Error("arr.shift() unexpectedly returned undefined!");
-//     }
-//     outputArray.push(currentPerson.name); // push currentPerson.name into the outputArray
-//     currentPerson["children"].forEach((child) => {
-//       workStack.push(child);
-//     });
-//   }
-//   return outputArray ; 
-
-// }
+  while (workStack.length != 0) {
+    currentPerson = workStack.shift();
+    if (currentPerson === undefined) {
+      throw new Error("arr.shift() unexpectedly returned undefined!");
+    }
+    outputArray.push(currentPerson);
+    currentPerson["children"].forEach((child) => {
+      workStack.push(child);
+    });
+  }
+  return outputArray;
+}
 
 // export default function isDescendant(descendantName: string, ancestorName: string, topOfTree:Person):boolean{
 //   const familyMembersArray = logAllPeopleInTreeWithQueue(topOfTree);
@@ -123,7 +121,23 @@ export function logInTree(targetName: string, topOfTree: Person): boolean {
 
 // }
 
-
 // 27/07/2023: task 9 - attempted isDescendant, getFamilyMembersArray - line 66 to line 124
 // todo: find ancestor tree from topOfTree
 // then use logAllPeopleInTreeWithQueue() to look for descendant in ancestor tree, if found return true, else return false
+
+export default function isDescendant(
+  descendantName: string,
+  ancestorName: string,
+  topOfTree: Person,
+): boolean {
+  const objectArray = getFamilyMembersArray(topOfTree);
+  const ancestorObject = objectArray.find(
+    (object) => object.name === ancestorName,
+  );
+  if (ancestorObject) {
+    const ancestorsChildrenArray = logAllPeopleInTreeWithQueue(ancestorObject);
+    return ancestorsChildrenArray.includes(descendantName);
+  } else {
+    return false;
+  }
+}
